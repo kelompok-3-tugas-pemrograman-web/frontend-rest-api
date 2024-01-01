@@ -22,7 +22,7 @@ function App() {
               href='https://gunadarma.ac.id/'
               className='flex items-center space-x-3 rtl:space-x-reverse'>
               <img src={logo} className='h-14' alt='Gunadarma Logo' />
-              <span className='self-center text-3xl font-bold whitespace-nowrap text-[#763996] md:dark:hover:text-[#9161ab] '>
+              <span className='self-center text-2xl font-bold whitespace-nowrap text-[#763996] md:dark:hover:text-[#9161ab] '>
                 Universitas Gunadarma
               </span>
             </a>
@@ -83,9 +83,9 @@ function App() {
         </div>
 
         <footer className='flex-none mx-auto py-5'>
-          <span class=' text-sm  sm:text-center text-[#763996] md:dark:hover:text-[#9161ab '>
+          <span className='text-sm  sm:text-center text-[#763996] md:dark:hover:text-[#9161ab '>
             © 2024{" "}
-            <a href='https://gunadarma.ac.id/' class='hover:underline'>
+            <a href='https://gunadarma.ac.id/' className='hover:underline'>
               Kelompok 3
             </a>
             . All Rights Reserved.
