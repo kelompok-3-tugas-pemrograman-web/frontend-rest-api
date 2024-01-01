@@ -14,15 +14,15 @@ function App() {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <div className=' pt-4  bg-[url("./beranda.png")] w-full h-full bg-no-repeat bg-cover  '>
-      <div className='max-w-7xl mx-auto min-h-screen '>
-        <nav className='bg-none '>
+    <div className='pt-4 bg-[url("./beranda.png")] w-full md:h-full bg-no-repeat bg-cover  '>
+      <div className='flex flex-col max-w-7xl mx-auto min-h-screen '>
+        <nav className='bg-none flex-none '>
           <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 '>
             <a
               href='https://gunadarma.ac.id/'
               className='flex items-center space-x-3 rtl:space-x-reverse'>
               <img src={logo} className='h-14' alt='Gunadarma Logo' />
-              <span className='self-center text-3xl font-semibold whitespace-nowrap text-[#763996] md:dark:hover:text-[#9161ab] '>
+              <span className='self-center text-3xl font-bold whitespace-nowrap text-[#763996] md:dark:hover:text-[#9161ab] '>
                 Universitas Gunadarma
               </span>
             </a>
@@ -59,27 +59,38 @@ function App() {
                     className='text-2xl block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-[#763996] md:dark:hover:text-[#9161ab]  md:dark:hover:bg-transparent'
                     aria-current='page'
                     to='/'>
-                    Home
+                    Beranda
                   </Link>
                 </li>
                 <li>
                   <Link
                     className='text-2xl block py-2 px-3  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-[#763996] md:dark:hover:text-[#9161ab] md:dark:hover:bg-transparent'
                     to='/students'>
-                    Student
+                    Daftar Mahasiswa
                   </Link>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
+        <div className='grow items-center'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/students' element={<StudentIndex />} />
+            <Route path='/students/create' element={<StudentCreate />} />
+            <Route path='/students/:id/edit' element={<StudentEdit />} />
+          </Routes>
+        </div>
 
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/students' element={<StudentIndex />} />
-          <Route path='/students/create' element={<StudentCreate />} />
-          <Route path='/students/:id/edit' element={<StudentEdit />} />
-        </Routes>
+        <footer className='flex-none mx-auto py-5'>
+          <span class=' text-sm  sm:text-center text-[#763996] md:dark:hover:text-[#9161ab '>
+            © 2024{" "}
+            <a href='https://gunadarma.ac.id/' class='hover:underline'>
+              Kelompok 3
+            </a>
+            . All Rights Reserved.
+          </span>
+        </footer>
       </div>
     </div>
   );
