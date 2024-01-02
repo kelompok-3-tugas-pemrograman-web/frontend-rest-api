@@ -16,6 +16,25 @@ const initialForm = {
   nohp: "",
 };
 
+const axiosInstance = axios.create();
+
+axiosInstance.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const { config, response } = error;
+    if (response && response.status === 429) {
+      const retryDelay = Math.pow(2, config.retryCount || 0) * 1000;
+
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(axiosInstance(config));
+        }, retryDelay);
+      });
+    }
+    return Promise.reject(error);
+  }
+);
+
 export const StudentProvider = ({ children }) => {
   const [formValues, setFormValues] = useState(initialForm);
   const [students, setStudents] = useState([]);
@@ -29,27 +48,37 @@ export const StudentProvider = ({ children }) => {
   };
 
   const getStudents = async () => {
-    const apiStudents = await axios.get("students");
-    setStudents(apiStudents.data.data);
+    try {
+      const apiStudents = await axiosInstance.get("students");
+      setStudents(apiStudents.data.data);
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle other error scenarios if needed
+    }
   };
 
   const getStudent = async (id) => {
-    const response = await axios.get("students/" + id);
-    const apiStudent = response.data.data;
-    setStudent(apiStudent);
-    setFormValues({
-      npm: apiStudent.npm,
-      nama: apiStudent.nama,
-      kelas: apiStudent.kelas,
-      jurusan: apiStudent.jurusan,
-      nohp: apiStudent.nohp,
-    });
+    try {
+      const response = await axiosInstance.get("students/" + id);
+      const apiStudent = response.data.data;
+      setStudent(apiStudent);
+      setFormValues({
+        npm: apiStudent.npm,
+        nama: apiStudent.nama,
+        kelas: apiStudent.kelas,
+        jurusan: apiStudent.jurusan,
+        nohp: apiStudent.nohp,
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle other error scenarios if needed
+    }
   };
 
   const storeStudent = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("students", formValues);
+      await axiosInstance.post("students", formValues);
       setFormValues(initialForm);
       navigate("/students");
     } catch (e) {
@@ -58,10 +87,11 @@ export const StudentProvider = ({ children }) => {
       }
     }
   };
+
   const updateStudent = async (e) => {
     e.preventDefault();
     try {
-      await axios.put("students/" + student.id, formValues);
+      await axiosInstance.put("students/" + student.id, formValues);
       setFormValues(initialForm);
       navigate("/students");
     } catch (e) {
@@ -75,7 +105,7 @@ export const StudentProvider = ({ children }) => {
     if (!window.confirm("Apakah Anda yakin untuk menghapusnya?")) {
       return;
     }
-    await axios.delete("students/" + id);
+    await axiosInstance.delete("students/" + id);
     getStudents();
   };
 
