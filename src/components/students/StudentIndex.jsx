@@ -62,7 +62,6 @@ export const StudentIndex = () => {
                     </Link>
                     <button
                       onClick={() => deleteStudent(student.id)}
-                      to={`/students/${student.id}/edit`}
                       className='px-4 py-2 text-white bg-red-500 rounded-md hover:bg-red-700 bg-green'>
                       Hapus
                     </button>

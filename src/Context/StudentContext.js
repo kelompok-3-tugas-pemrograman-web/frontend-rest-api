@@ -8,15 +8,16 @@ axios.defaults.baseURL = "http://localhost:8000/api/v1/";
 
 const StudentContext = createContext();
 
-export const StudentProvider = ({ children }) => {
-  const [formValues, setFormValues] = useState({
-    npm: "",
-    nama: "",
-    kelas: "",
-    jurusan: "",
-    nohp: "",
-  });
+const initialForm = {
+  npm: "",
+  nama: "",
+  kelas: "",
+  jurusan: "",
+  nohp: "",
+};
 
+export const StudentProvider = ({ children }) => {
+  const [formValues, setFormValues] = useState(initialForm);
   const [students, setStudents] = useState([]);
   const [student, setStudent] = useState([]);
   const [errors, setErrors] = useState({});
@@ -49,7 +50,7 @@ export const StudentProvider = ({ children }) => {
     e.preventDefault();
     try {
       await axios.post("students", formValues);
-      getStudents();
+      setFormValues(initialForm);
       navigate("/students");
     } catch (e) {
       if (e.response.status === 422) {
@@ -61,7 +62,7 @@ export const StudentProvider = ({ children }) => {
     e.preventDefault();
     try {
       await axios.put("students/" + student.id, formValues);
-      getStudents();
+      setFormValues(initialForm);
       navigate("/students");
     } catch (e) {
       if (e.response.status === 422) {
@@ -70,9 +71,12 @@ export const StudentProvider = ({ children }) => {
     }
   };
 
-  const deleteStudent = async (e) => {
-    await axios.delete("student/" + student.id);
-    getStudent();
+  const deleteStudent = async (id) => {
+    if (!window.confirm("Apakah Anda yakin untuk menghapusnya?")) {
+      return;
+    }
+    await axios.delete("students/" + id);
+    getStudents();
   };
 
   return (
@@ -85,6 +89,7 @@ export const StudentProvider = ({ children }) => {
         onChange,
         formValues,
         storeStudent,
+        setErrors,
         errors,
         updateStudent,
         deleteStudent,

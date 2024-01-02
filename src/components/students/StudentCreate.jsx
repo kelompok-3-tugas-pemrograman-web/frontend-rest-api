@@ -1,12 +1,15 @@
 /** @format */
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import StudentContext from "../../Context/StudentContext";
 
 export const StudentCreate = () => {
-  const { formValues, onChange, storeStudent, errors } =
+  const { formValues, onChange, storeStudent, errors, setErrors } =
     useContext(StudentContext);
+  useEffect(() => {
+    setErrors({});
+  }, []);
   return (
     <div className='mt-12'>
       <form

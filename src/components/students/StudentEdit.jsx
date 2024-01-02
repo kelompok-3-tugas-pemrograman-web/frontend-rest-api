@@ -6,11 +6,19 @@ import StudentContext from "../../Context/StudentContext";
 import { useParams } from "react-router-dom";
 
 export const StudentEdit = () => {
-  const { formValues, onChange, errors, student, getStudent, updateStudent } =
-    useContext(StudentContext);
+  const {
+    formValues,
+    onChange,
+    errors,
+    student,
+    setErrors,
+    getStudent,
+    updateStudent,
+  } = useContext(StudentContext);
   let { id } = useParams();
   useEffect(() => {
     getStudent(id);
+    setErrors({});
   }, []);
   return (
     <div className='mt-12'>
