@@ -1,64 +1,26 @@
 /** @format */
 
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import StudentContext from "../../Context/StudentContext";
 
 export const StudentIndex = () => {
-  const [students, setStudents] = useState([]);
+  const { students, getStudents } = useContext(StudentContext);
   useEffect(() => {
-    const getStudents = async () => {
-      const apiStudents = await axios.get(
-        "http://localhost:8000/api/v1/students"
-      );
-      setStudents(apiStudents.data.data);
-    };
     getStudents();
   }, []);
   return (
     <div className='mt-20'>
+      <div className='flex justify-end px-2'>
+        <Link
+          type='button'
+          className=' text-white bg-[#763996] hover:bg-[#9161ab]  font-medium rounded-full text-sm px-5 py-3 mb-2 my-3  '
+          to='/students/create'>
+          Tambah Data
+        </Link>
+      </div>
       <div className='relative overflow-x-auto sm:rounded-lg'>
-        <div className='flex none '>
-          <div className='pb-4 w-6/12 items-center '>
-            <label htmlFor='table-search' className='sr-only'>
-              Search
-            </label>
-            <div className='relative mt-1'>
-              <div className='absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none'>
-                <svg
-                  className='w-4 h-4 text-white dark:text-white'
-                  aria-hidden='true'
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 20 20'>
-                  <path
-                    stroke='currentColor'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth='2'
-                    d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'
-                  />
-                </svg>
-              </div>
-              <input
-                type='text'
-                id='table-search'
-                className='block pt-8 py-auto  text-md text-white align-baseline  rounded-lg w-full  bg-[#763996]'
-                placeholder='Search for items'
-              />
-            </div>
-          </div>
-          <div className='w-6/12 px-2 flex justify-end items-center'>
-            <Link
-              type='button'
-              className='focus:outline-none text-white bg-[#763996] hover:bg-[#9161ab]  font-medium rounded-full text-sm px-5 py-3 mb-2 my-3  '
-              to='/students/create'>
-              Tambah Data
-            </Link>
-          </div>
-        </div>
-
-        <table className='w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+        <table className='w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400'>
           <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
             <tr>
               <th scope='col' className='px-6 py-3'>
@@ -76,9 +38,7 @@ export const StudentIndex = () => {
               <th scope='col' className='px-6 py-3'>
                 Nomor HP
               </th>
-              <th scope='col' className='px-6 py-3'>
-                Aksi
-              </th>
+              <th scope='col' className='px-6 py-3'></th>
             </tr>
           </thead>
           <tbody>
