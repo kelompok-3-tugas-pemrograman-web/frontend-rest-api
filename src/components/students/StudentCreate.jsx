@@ -11,7 +11,7 @@ export const StudentCreate = () => {
     setErrors({});
   }, []);
   return (
-    <div className='mt-12'>
+    <div className='mt-12 text-[#763996]'>
       <form
         onSubmit={storeStudent}
         className='max-w-md p-4 mx-auto bg-white shadow-md rounded-xl '>
@@ -27,7 +27,7 @@ export const StudentCreate = () => {
               name='npm'
               value={formValues["npm"]}
               onChange={onChange}
-              className='block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-md'
+              className='block w-full p-2 text-sm text-[#763996] border border-[#763996] rounded-md'
             />
             {errors.npm && (
               <span className='text-sm text-red-400'>{errors.npm[0]}</span>
@@ -41,7 +41,7 @@ export const StudentCreate = () => {
               name='nama'
               value={formValues["nama"]}
               onChange={onChange}
-              className='block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-md'
+              className='block w-full p-2 text-sm text-[#763996] border border-[#763996] rounded-md'
             />
             {errors.nama && (
               <span className='text-sm text-red-400'>{errors.nama[0]}</span>
@@ -55,7 +55,7 @@ export const StudentCreate = () => {
               name='kelas'
               value={formValues["kelas"]}
               onChange={onChange}
-              className='block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-md'
+              className='block w-full p-2 text-sm text-[#763996] border border-[#763996] rounded-md'
             />
             {errors.kelas && (
               <span className='text-sm text-red-400'>{errors.kelas[0]}</span>
@@ -69,7 +69,7 @@ export const StudentCreate = () => {
               name='jurusan'
               value={formValues["jurusan"]}
               onChange={onChange}
-              className='block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-md'
+              className='block w-full p-2 text-sm text-[#763996] border border-[#763996] rounded-md'
             />
             {errors.jurusan && (
               <span className='text-sm text-red-400'>{errors.jurusan[0]}</span>
@@ -83,7 +83,7 @@ export const StudentCreate = () => {
               name='nohp'
               value={formValues["nohp"]}
               onChange={onChange}
-              className='block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-md'
+              className='block w-full p-2 text-sm text-[#763996] border border-[#763996] rounded-md'
             />
             {errors.nohp && (
               <span className='text-sm text-red-400'>{errors.nohp[0]}</span>

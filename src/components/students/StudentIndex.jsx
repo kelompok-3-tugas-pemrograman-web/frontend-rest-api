@@ -11,15 +11,15 @@ export const StudentIndex = () => {
   }, []);
   return (
     <div className='mt-20'>
-      <div className='flex justify-end px-2'>
+      <div className='flex justify-end'>
         <Link
           type='button'
-          className=' text-white bg-[#763996] hover:bg-[#9161ab]  font-medium rounded-full text-sm px-5 py-3 mb-2 my-3  '
+          className=' text-white bg-[#763996] hover:bg-[#9161ab]  font-medium rounded-2xl text-sm px-5 py-3 mb-2 my-3  '
           to='/students/create'>
           Tambah Data
         </Link>
       </div>
-      <div className='relative overflow-x-auto sm:rounded-lg '>
+      <div className='relative overflow-x-auto md:rounded-2xl '>
         <table className='w-full text-sm text-center text-white rtl:text-right 0'>
           <thead className='text-xs text-white uppercase bg-[#763996] '>
             <tr>

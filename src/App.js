@@ -7,7 +7,7 @@ import { useState } from "react";
 import { StudentIndex } from "./components/students/StudentIndex";
 import { StudentCreate } from "./components/students/StudentCreate";
 import { StudentEdit } from "./components/students/StudentEdit";
-import logo from "../src/logo-gunadarma.png";
+import logo from "./logo-gunadarma.png";
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -16,7 +16,7 @@ function App() {
   };
   return (
     <StudentProvider>
-      <div className='pt-4 bg-[url("./beranda.png")] w-full md:h-full bg-no-repeat bg-cover  '>
+      <div className='w-full pt-4 bg-no-repeat bg-fixed bg-cover md:h-full  bg-[url("/src/beranda.png")]'>
         <div className='flex flex-col min-h-screen mx-auto max-w-7xl '>
           <nav className='flex-none bg-none '>
             <div className='flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto '>
@@ -30,7 +30,7 @@ function App() {
               </a>
               <button
                 type='button'
-                className='inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
+                className='inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-[#763996] focus:outline-none focus:ring-2 focus:ring-[#763996] dark:text-white dark:hover:bg-[#9161ab] dark:focus:ring-[#9161ab] '
                 aria-controls='navbar-default'
                 aria-expanded={isMenuOpen ? "true" : "false"}
                 onClick={handleToggleMenu}>
