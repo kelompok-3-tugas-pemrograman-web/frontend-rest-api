@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <div className='flex items-center h-screen '>
       <div className='w-6/12 px-2 '>
-        <h1 className='text-xl font-bold text-[#763996]'>
+        <h1 className='text-4xl font-bold text-[#763996]'>
           Sistem Informasi Mahasiswa: Akses Cepat, Informasi Lengkap
         </h1>
         <p className='text-left py-3 text-[#763996] font-semibold'>

@@ -19,9 +19,9 @@ export const StudentIndex = () => {
           Tambah Data
         </Link>
       </div>
-      <div className='relative overflow-x-auto sm:rounded-lg'>
-        <table className='w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400'>
-          <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+      <div className='relative overflow-x-auto sm:rounded-lg '>
+        <table className='w-full text-sm text-center text-white rtl:text-right 0'>
+          <thead className='text-xs text-white uppercase bg-[#763996] '>
             <tr>
               <th scope='col' className='px-6 py-3'>
                 NPM
@@ -43,12 +43,12 @@ export const StudentIndex = () => {
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className='text-center'>
             {students.map((student) => {
               return (
                 <tr
                   key={student.id}
-                  className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600'>
+                  className='bg-[#3b1d4b] border-b  hover:bg-[#bb9ccb]'>
                   <td className='px-6 py-4'>{student.npm}</td>
                   <td className='px-6 py-4'>{student.nama}</td>
                   <td className='px-6 py-4'>{student.kelas}</td>

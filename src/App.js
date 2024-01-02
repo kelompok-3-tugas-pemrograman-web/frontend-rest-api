@@ -75,13 +75,14 @@ function App() {
               </div>
             </div>
           </nav>
-
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/students' element={<StudentIndex />} />
-            <Route path='/students/create' element={<StudentCreate />} />
-            <Route path='/students/:id/edit' element={<StudentEdit />} />
-          </Routes>
+          <div className='items-center grow'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/students' element={<StudentIndex />} />
+              <Route path='/students/create' element={<StudentCreate />} />
+              <Route path='/students/:id/edit' element={<StudentEdit />} />
+            </Routes>
+          </div>
 
           <footer className='flex-none py-5 mx-auto'>
             <span className='text-sm  sm:text-center text-[#763996] md:dark:hover:text-[#9161ab '>
