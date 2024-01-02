@@ -70,6 +70,11 @@ export const StudentProvider = ({ children }) => {
     }
   };
 
+  const deleteStudent = async (e) => {
+    await axios.delete("student/" + student.id);
+    getStudent();
+  };
+
   return (
     <StudentContext.Provider
       value={{
@@ -82,6 +87,7 @@ export const StudentProvider = ({ children }) => {
         storeStudent,
         errors,
         updateStudent,
+        deleteStudent,
       }}>
       {children}
     </StudentContext.Provider>
