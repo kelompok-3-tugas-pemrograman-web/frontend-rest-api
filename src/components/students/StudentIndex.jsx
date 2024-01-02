@@ -38,7 +38,9 @@ export const StudentIndex = () => {
               <th scope='col' className='px-6 py-3'>
                 Nomor HP
               </th>
-              <th scope='col' className='px-6 py-3'></th>
+              <th scope='col' className='px-6 py-3'>
+                Aksi
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -52,7 +54,13 @@ export const StudentIndex = () => {
                   <td className='px-6 py-4'>{student.kelas}</td>
                   <td className='px-6 py-4'>{student.jurusan}</td>
                   <td className='px-6 py-4'>{student.nohp}</td>
-                  <td className='px-6 py-4'>edit/delete</td>
+                  <td className='px-6 py-4'>
+                    <Link
+                      to={`/students/${student.id}/edit`}
+                      className='px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-700 bg-green'>
+                      Edit
+                    </Link>
+                  </td>
                 </tr>
               );
             })}

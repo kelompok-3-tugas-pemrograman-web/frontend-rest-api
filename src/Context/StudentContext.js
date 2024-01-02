@@ -34,13 +34,33 @@ export const StudentProvider = ({ children }) => {
 
   const getStudent = async (id) => {
     const response = await axios.get("students/" + id);
-    setStudent(response.data.data);
+    const apiStudent = response.data.data;
+    setStudent(apiStudent);
+    setFormValues({
+      npm: apiStudent.npm,
+      nama: apiStudent.nama,
+      kelas: apiStudent.kelas,
+      jurusan: apiStudent.jurusan,
+      nohp: apiStudent.nohp,
+    });
   };
 
   const storeStudent = async (e) => {
     e.preventDefault();
     try {
       await axios.post("students", formValues);
+      getStudents();
+      navigate("/students");
+    } catch (e) {
+      if (e.response.status === 422) {
+        setErrors(e.response.data.errors);
+      }
+    }
+  };
+  const updateStudent = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put("students/" + student.id, formValues);
       getStudents();
       navigate("/students");
     } catch (e) {
@@ -61,6 +81,7 @@ export const StudentProvider = ({ children }) => {
         formValues,
         storeStudent,
         errors,
+        updateStudent,
       }}>
       {children}
     </StudentContext.Provider>
