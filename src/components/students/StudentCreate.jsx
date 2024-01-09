@@ -15,7 +15,7 @@ export const StudentCreate = () => {
       <form
         onSubmit={storeStudent}
         className='max-w-md p-4 mx-auto bg-white shadow-md rounded-xl '>
-        <h1 className='flex justify-center py-4 text-xl font-semibold'>
+        <h1 className='flex justify-center py-4 text-xl font-semibold text-[#763996]'>
           Tambah Data Mahasiswa
         </h1>
         <div className='space-y-6'>

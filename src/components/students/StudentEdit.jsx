@@ -21,12 +21,12 @@ export const StudentEdit = () => {
     setErrors({});
   }, []);
   return (
-    <div className='mt-12'>
+    <div className='mt-12 text-[#763996]'>
       <form
         onSubmit={updateStudent}
         className='max-w-md p-4 mx-auto bg-white shadow-md rounded-xl '>
-        <h1 className='flex justify-center py-4 text-xl font-semibold'>
-          Tambah Data Mahasiswa
+        <h1 className='flex justify-center py-4 text-xl font-semibold text-[#763996]'>
+          Edit Data Mahasiswa
         </h1>
         <div className='space-y-6'>
           <div className='mb-4'>

@@ -28,7 +28,7 @@ export const StudentIndex = () => {
   return (
     <div className='mt-20'>
       <div className='flex justify-between '>
-        <form className='flex items-center flex-grow'>
+        <form className='flex items-center flex-grow py-4 text-white '>
           <label
             htmlFor='default-search'
             className='mb-2 text-sm font-medium text-white sr-only '>
@@ -54,7 +54,7 @@ export const StudentIndex = () => {
             <input
               type='text'
               id='default-search'
-              className='block w-[500px] p-4 text-sm text-white border border-[#9161ab] rounded-lg ps-10 bg-[#763996]'
+              className='block w-[500px] p-4 text-sm text-white border border-[#9161ab] rounded-xl ps-10 bg-[#763996]'
               placeholder='Cari mahasiswa...'
               onChange={Filter}
               required
@@ -65,7 +65,7 @@ export const StudentIndex = () => {
         <div className='flex items-center'>
           <Link
             type='button'
-            className=' text-white bg-[#763996] hover:bg-[#9161ab]  font-medium rounded-2xl text-sm px-5 py-3 mb-2 my-3  '
+            className=' text-white bg-[#763996] hover:bg-[#9161ab]  font-medium rounded-2xl text-sm px-6 py-4 mb-2 my-3  '
             to='/students/create'>
             Tambah Data
           </Link>

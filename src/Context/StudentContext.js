@@ -53,7 +53,6 @@ export const StudentProvider = ({ children }) => {
       setStudents(apiStudents.data.data);
     } catch (error) {
       console.error("Error:", error);
-      // Handle other error scenarios if needed
     }
   };
 
@@ -71,7 +70,6 @@ export const StudentProvider = ({ children }) => {
       });
     } catch (error) {
       console.error("Error:", error);
-      // Handle other error scenarios if needed
     }
   };
 
